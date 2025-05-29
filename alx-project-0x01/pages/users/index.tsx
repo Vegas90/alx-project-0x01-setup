@@ -31,6 +31,6 @@ export async function getStaticProps() {
 }
 
 
-export default UsersPage;
+export default Users;
 export type { UserProps };
 export { default as UserCard } from "@/components/common/UserCard";
