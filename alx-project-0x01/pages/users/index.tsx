@@ -1,6 +1,8 @@
 import Header from "@/components/layout/Header";
 import React from "react";
 import { UserProps } from "@/interfaces";
+import { UserCard } from "@/components/common/UserCard";
+import UserModal from "@/components/common/UserModal";
 
 function Users() {
   return (
