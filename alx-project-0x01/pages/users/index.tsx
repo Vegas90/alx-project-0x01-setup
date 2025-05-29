@@ -1,8 +1,6 @@
 import Header from "@/components/layout/Header";
 import React from "react";
 import { UserProps } from "@/interfaces";
-//Dynamic Rendering with Props of UserCard component
-import { UserCard } from "@/components/common/UserCard";
 
 function Users() {
   return (

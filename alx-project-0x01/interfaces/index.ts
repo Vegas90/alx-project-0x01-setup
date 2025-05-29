@@ -27,3 +27,16 @@ export interface UserProps {
     bs: string;
   };
 }
+
+export interface PostData {
+  userId: number;
+  id?: number;
+  title: string;
+  body: string;
+}
+
+// This interface is used for the modal component to handle post creation or editing
+export interface PostModalProps {
+  onClose: () => void;
+  onSubmit: (post: PostData) => void;
+}
