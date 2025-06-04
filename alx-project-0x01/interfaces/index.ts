@@ -71,3 +71,31 @@ export interface UserModalProps {
   onClose: () => void;
   onSubmit: (post: UserProps) => void; //
 }
+
+export interface PropertyProps{
+
+name: string;
+address:{
+  state:string;
+  city:string;
+  country:string;
+
+}
+rating: number;
+category: string[];
+  price: number;
+ offers:{
+  bed: number;
+  shower: boolean;
+  occupants: number;
+ }
+ image: string;
+ discount: string;
+}
+
+export interface PillarProps {
+  title: string;
+  description: string;
+  icon: React.ReactNode; // Icon can be any React node (e.g., SVG, FontAwesome icon)
+  link?: string; // Optional link for the pillar
+}

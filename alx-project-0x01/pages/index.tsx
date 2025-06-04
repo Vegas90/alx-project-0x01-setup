@@ -1,4 +1,8 @@
 import Header from "@/components/layout/Header";
+import React from "react";
+import { PROPERTYLISTINGSAMPLE } from "@/interfaces";
+import type { PropertyProps } from "@/interfaces";  
+
 
 const Home: React.FC = () => {
   return (
@@ -21,4 +25,62 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home;
+
+
+// Hero section with background image and main headings.
+const HeroSection = () => (
+  <section
+    className="relative bg-cover bg-center h-64 flex flex-col justify-center items-center"
+    style={{ backgroundImage: "url('/path/to/your/background.jpg')" }} // Replace with actual image path
+  >
+    <h1 className="text-4xl font-bold text-white">Find your favorite place here!</h1>
+    <p className="text-xl text-white mt-2">
+      The best prices for over 2 million properties worldwide.
+    </p>
+  </section>
+);
+ 
+// Property card component for each listing.
+const PropertyCard = ({ property }: { property: PropertyProps }) => (
+  <div className="border rounded shadow-md p-4 w-full md:w-1/3">
+    {/* Property image */}
+    <image src={property.image} alt={property.name} className="w-full h-40 object-cover rounded"> </image>
+    {/* Property details */}
+    <h2 className="font-bold text-lg mt-2">{property.name}</h2>
+    <p className="text-gray-600">{property.address.city}, {property.address.country}</p>
+    <p className="text-yellow-500">Rating: {property.rating}</p>
+    <p className="text-blue-700 font-semibold">${property.price}</p>
+    {/* Show discount if available */}
+    {property.discount && (
+      <span className="bg-red-200 text-red-800 px-2 py-1 rounded">
+        {property.discount}% OFF
+      </span>
+    )}
+  </div>
+);
+
+// Listing section that maps over property data to display cards.
+const ListingSection = () => (
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-8">
+    {PROPERTYLISTINGSAMPLE.map((property) => (
+      <PropertyCard key={property.name} property={property} />
+    ))}
+  </div>
+);
+
+// Main page component.
+const HomePage = () => (
+  <>
+    <HeroSection />
+    <FilterSection />
+    <ListingSection />
+  </>
+);
+
+//export default HomePage;
+
+
+export default Home; 
+//export the hero
+export { HeroSection };
+export { FilterSection };

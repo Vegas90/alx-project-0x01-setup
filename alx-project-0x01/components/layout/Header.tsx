@@ -1,25 +1,37 @@
-import Link from 'next/link'; 
+// create a functional component that renders the header content, including search bar, sign and sign up , Types of accommodation (e.g. Rooms, Mansion, Countryside, etc.) and a logo.
+import React from "react";
 
+// Header component that displays the site logo, search bar, navigation, and authentication buttons.
 const Header: React.FC = () => {
   return (
-    <header className="bg-blue-600 text-white shadow-md py-4">
-      <div className="container mx-auto flex justify-between items-center px-4">
-        <h3 className="font-bold text-2xl">
-     <Link href="/">Daily Contents</Link>
-  </h3>
-        <nav>
-          <ul className="flex space-x-6">
-            <li className="hover:underline">
-              <Link href="/posts">Posts</Link>
-            </li>
-            <li className="hover:underline">
-              <Link href="/users">Users</Link>
-            </li>
-          </ul>
+    <header className="bg-white shadow">
+      {/* Logo Section */}
+      <div className="flex items-center justify-between px-4 py-3">
+        <div className="flex items-center">
+          {/* Replace with your logo */}
+          <span className="font-bold text-xl">MyListingApp</span>
+        </div>
+        {/* Navigation for accommodation types */}
+        <nav className="hidden md:flex space-x-4">
+          <a href="#" className="text-gray-700">Rooms</a>
+          <a href="#" className="text-gray-700">Mansion</a>
+          <a href="#" className="text-gray-700">Countryside</a>
+          {/* Add more categories as needed */}
         </nav>
+        {/* Search Bar */}
+        <input
+          type="text"
+          placeholder="Search properties..."
+          className="border rounded px-2 py-1"
+        />
+        {/* Auth Buttons */}
+        <div className="space-x-2">
+          <button className="text-blue-600">Sign In</button>
+          <button className="bg-blue-600 text-white px-3 py-1 rounded">Sign Up</button>
+        </div>
       </div>
     </header>
   );
-}
+};
 
 export default Header;
